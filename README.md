@@ -6,6 +6,7 @@
 * It's split up to the logical modules
 * It's the REST application
 * Thread-safe is out of the box with Spring framework
+* There is no error handling, but there are some constraints in the DB and controller layer
 
 ## How to run:
 * Run docker-compose file with Postgres DB and predefined table
