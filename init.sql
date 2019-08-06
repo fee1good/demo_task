@@ -1,0 +1,7 @@
+CREATE TABLE number
+(
+  id    BIGSERIAL NOT NULL,
+  value DECIMAL   NOT NULL DEFAULT 0,
+
+  CONSTRAINT pk_number_id PRIMARY KEY (id)
+);

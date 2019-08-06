@@ -1,0 +1,93 @@
+swagger: "2.0"
+
+info:
+  version: 1.0.0
+  title: Demo Number APP
+  description: A simple demo API
+
+basePath: /api
+schemes:
+  - http
+  - https
+
+
+paths:
+  /number:
+    post:
+      summary: 'Create new number'
+      operationId: createNewNumber
+      tags:
+        - Numbers
+      parameters:
+        - in: body
+          name: numberToCreate
+          description: Number value to create
+          schema:
+            type: object
+            properties:
+              value:
+                type: number
+      responses:
+        200:
+          description: Number added
+          schema:
+            $ref: '#/definitions/NumberModel'
+
+  /number/min:
+    get:
+      summary: 'Get min value'
+      operationId: getMinValue
+      tags:
+        - Numbers
+      responses:
+        200:
+          description: Min value sent
+          schema:
+            $ref: '#/definitions/CalculatedValue'
+
+  /number/avg:
+    get:
+      summary: 'Get avg value'
+      operationId: getAvgValue
+      tags:
+        - Numbers
+      responses:
+        200:
+          description: Avg value sent
+          schema:
+            $ref: '#/definitions/CalculatedValue'
+
+  /number/max:
+    get:
+      summary: 'Get max value'
+      operationId: getMaxValue
+      tags:
+        - Numbers
+      responses:
+        200:
+          description: Max value sent
+          schema:
+            $ref: '#/definitions/CalculatedValue'
+
+definitions:
+
+  Id:
+    type: integer
+
+  NumberModel:
+    description: A Number model to create
+    type: object
+    properties:
+      id:
+        $ref: '#/definitions/Id'
+      value:
+        type: number
+        format: int64
+
+  CalculatedValue:
+    description: The result of calculation
+    type: object
+    properties:
+      value:
+        type: number
+        format: int64
